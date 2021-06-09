@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "678556845092",
+    "project_id": "dabewala-7640a",
+    "storage_bucket": "dabewala-7640a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678556845092:android:507aee719f33ce0b4c84b1",
+        "android_client_info": {
+          "package_name": "com.testnasa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678556845092-1d9qt9s1kahli47pilj2nkq0tqlk9u4i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.testnasa",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "678556845092-spv6ei0jn2su7a2ppjiccqksaj0pl5do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnL84yoX0P77Joemv4ppyWHrHbrw-vvwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678556845092-spv6ei0jn2su7a2ppjiccqksaj0pl5do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
