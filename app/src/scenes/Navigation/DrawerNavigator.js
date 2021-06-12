@@ -6,8 +6,9 @@ const Stack = createStackNavigator();
 import {MyOrder} from '../MyOrder';
 import {Home} from '../Home';
 import {Logout} from '../Logout';
-import {Uhome} from '../user/Uhome';
+import {Owner} from '../user/Uhome';
 import {UmyOrder} from '../user/UmyOrder';
+import {AboutUs} from '../AboutUS';
 import R from '../../R';
 
 import {BackButton} from '../../components/index';
@@ -30,16 +31,40 @@ export const DrawerNavigator = (props) => {
       {props.route.params.isOwner ? (
         <Drawer.Screen name="Home" component={HomeNavigator} />
       ) : (
-        <Drawer.Screen name="Uhome" component={UhomeNavigator} />
+        <Drawer.Screen name="Owner" component={UhomeNavigator} />
       )}
       {props.route.params.isOwner ? (
         <Drawer.Screen name="MyOrder" component={MyOrderNavigator} />
       ) : (
         <Drawer.Screen name="UmyOrder" component={UmyOrderNavigator} />
       )}
-
+      <Drawer.Screen name="AboutUs" component={AboutUsNavigator} />
       <Drawer.Screen name="LogOut" component={LogoutNavigator} />
     </Drawer.Navigator>
+  );
+};
+
+const AboutUsNavigator = ({navigation}) => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="AboutUs"
+        component={AboutUs}
+        options={{
+          headerTitle: 'AboutUs',
+          headerStyle: {
+            backgroundColor: '#800000',
+          },
+          headerTintColor: '#fff',
+          headerLeft: () => (
+            <BackButton
+              source={R.images.menu}
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+    </Stack.Navigator>
   );
 };
 
@@ -95,8 +120,8 @@ const UhomeNavigator = ({navigation}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Uhome"
-        component={Uhome}
+        name="Owner"
+        component={Owner}
         options={{
           headerTitle: 'Home',
           headerStyle: {

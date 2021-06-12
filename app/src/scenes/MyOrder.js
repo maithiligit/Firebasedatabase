@@ -16,7 +16,7 @@ export const MyOrder = (props) => {
       .on('value', (snapshot) => {
         console.log('User data: ', snapshot.val());
         let userdata = snapshot.val();
-        console.log('userdata', userdata.veg);
+        // console.log('userdata', userdata.veg);
 
         if (userdata == null) {
           setFlag(true);
@@ -33,7 +33,7 @@ export const MyOrder = (props) => {
   };
   return (
     <RootView customStyle={styles.root}>
-      {/* {flag == true ? (
+      {data == null ? (
         <View>
           <CircleImage
             source={R.images.man}
@@ -55,36 +55,36 @@ export const MyOrder = (props) => {
             You haven't placed any order
           </Text>
         </View>
-      ) : ( */}
-      <View style={styles.mainView}>
-        <View style={styles.childView}>
-          <Text style={styles.title}>Name :-</Text>
-          <Text style={styles.text}>{data.username}</Text>
-        </View>
+      ) : (
+        <View style={styles.mainView}>
+          <View style={styles.childView}>
+            <Text style={styles.title}>Name :-</Text>
+            <Text style={styles.text}>{data.username}</Text>
+          </View>
 
-        <View style={styles.childView}>
-          <Text style={styles.title}>Location :-</Text>
-          <Text style={styles.text}>{data.location}</Text>
-        </View>
+          <View style={styles.childView}>
+            <Text style={styles.title}>Location :-</Text>
+            <Text style={styles.text}>{data.location}</Text>
+          </View>
 
-        <View style={styles.menuView}>
-          <Text style={styles.title}>Menu :-</Text>
-          <View style={{flexDirection: 'row'}}>
-            <View>
-              <Text style={styles.textView}>Veg :{data.veg}</Text>
-              <Text style={[styles.textView, {marginTop: 5}]}>
-                Chapati : {data.chapati}
-              </Text>
-            </View>
-            <View>
-              <Text style={styles.textView}>Dal : {data.dal}</Text>
-              <Text style={[styles.textView, {marginTop: 5}]}>
-                Rice :{data.rice}
-              </Text>
+          <View style={styles.menuView}>
+            <Text style={styles.title}>Menu :-</Text>
+            <View style={{flexDirection: 'row'}}>
+              <View>
+                <Text style={styles.textView}>Veg :{data.veg}</Text>
+                <Text style={[styles.textView, {marginTop: 5}]}>
+                  Chapati : {data.chapati}
+                </Text>
+              </View>
+              <View>
+                <Text style={styles.textView}>Dal : {data.dal}</Text>
+                <Text style={[styles.textView, {marginTop: 5}]}>
+                  Rice :{data.rice}
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
-        {/* <View style={styles.view}>
+          {/* <View style={styles.view}>
           <SimpleButton
             title="Decline"
             customTxtStyle={{color: '#fff', fontSize: horizontalScale(18)}}
@@ -95,8 +95,8 @@ export const MyOrder = (props) => {
             onPress={cancelOrder}
           />
         </View> */}
-      </View>
-      {/* )} */}
+        </View>
+      )}
     </RootView>
   );
 };

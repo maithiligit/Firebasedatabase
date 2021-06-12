@@ -7,7 +7,7 @@ import R from '../../R';
 import database from '@react-native-firebase/database';
 
 export const UmyOrder = (props) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{}]);
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [veg, setVeg] = useState(0);
@@ -21,13 +21,18 @@ export const UmyOrder = (props) => {
       .on('value', (snapshot) => {
         console.log('User data: ', snapshot.val());
         let userdata = snapshot.val();
-        console.log('userdata', userdata.veg);
+        // console.log('userdata', userdata.veg);
         setData(userdata);
       });
   }, []);
+
+  const cancelOrder = () => {
+    database().ref('Data').remove();
+    alert('Order Successfully Cancelled ');
+  };
   return (
     <RootView customStyle={styles.root}>
-      {/* {flag == true ? (
+      {data == null ? (
         <View>
           <CircleImage
             source={R.images.man}
@@ -45,94 +50,94 @@ export const UmyOrder = (props) => {
               alignSelf: 'center',
               marginTop: horizontalScale(40),
             }}>
-            You haven't placed any order
+            Today you have No Order
           </Text>
         </View>
-      ) : ( */}
-      <View
-        style={{
-          width: '90%',
-          borderWidth: 1,
-          padding: horizontalScale(5),
-          marginTop: horizontalScale(25),
-        }}>
-        <View style={{flexDirection: 'row', marginTop: horizontalScale(10)}}>
-          <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
-            Name :-
-          </Text>
-          <Text
-            style={{
-              fontSize: horizontalScale(18),
-              paddingLeft: horizontalScale(5),
-            }}>
-            {data.username}
-          </Text>
-        </View>
+      ) : (
+        <View
+          style={{
+            width: '90%',
+            borderWidth: 1,
+            padding: horizontalScale(5),
+            marginTop: horizontalScale(25),
+          }}>
+          <View style={{flexDirection: 'row', marginTop: horizontalScale(10)}}>
+            <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
+              Name :-
+            </Text>
+            <Text
+              style={{
+                fontSize: horizontalScale(18),
+                paddingLeft: horizontalScale(5),
+              }}>
+              {data.username}
+            </Text>
+          </View>
 
-        <View style={{flexDirection: 'row', marginTop: horizontalScale(15)}}>
-          <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
-            Location :-
-          </Text>
-          <Text
-            style={{
-              fontSize: horizontalScale(18),
-              paddingLeft: horizontalScale(5),
-              width: '70%',
-            }}>
-            {data.location}
-          </Text>
-        </View>
+          <View style={{flexDirection: 'row', marginTop: horizontalScale(15)}}>
+            <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
+              Location :-
+            </Text>
+            <Text
+              style={{
+                fontSize: horizontalScale(18),
+                paddingLeft: horizontalScale(5),
+                width: '70%',
+              }}>
+              {data.location}
+            </Text>
+          </View>
 
-        <View style={{flexDirection: 'row', marginTop: horizontalScale(15)}}>
-          <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
-            Menu :-
-          </Text>
-          <View style={{flexDirection: 'row'}}>
-            <View>
-              <Text
-                style={{
-                  fontSize: horizontalScale(18),
-                  padding: horizontalScale(5),
-                  borderWidth: 1,
-                  marginLeft: horizontalScale(10),
-                }}>
-                Veg :{data.veg}
-              </Text>
-              <Text
-                style={{
-                  fontSize: horizontalScale(18),
-                  padding: horizontalScale(5),
-                  borderWidth: 1,
-                  marginTop: horizontalScale(10),
-                  marginLeft: horizontalScale(10),
-                }}>
-                Chapati : {data.chapati}
-              </Text>
-            </View>
-            <View>
-              <Text
-                style={{
-                  fontSize: horizontalScale(18),
-                  padding: horizontalScale(5),
-                  borderWidth: 1,
-                  marginLeft: horizontalScale(10),
-                }}>
-                Dal : {data.dal}
-              </Text>
-              <Text
-                style={{
-                  fontSize: horizontalScale(18),
-                  padding: horizontalScale(5),
-                  borderWidth: 1,
-                  marginTop: horizontalScale(10),
-                  marginLeft: horizontalScale(10),
-                }}>
-                Rice :{data.rice}
-              </Text>
+          <View style={{flexDirection: 'row', marginTop: horizontalScale(15)}}>
+            <Text style={{fontSize: horizontalScale(18), fontWeight: 'bold'}}>
+              Menu :-
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <View>
+                <Text
+                  style={{
+                    fontSize: horizontalScale(18),
+                    padding: horizontalScale(5),
+                    borderWidth: 1,
+                    marginLeft: horizontalScale(10),
+                  }}>
+                  Veg :{data.veg}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: horizontalScale(18),
+                    padding: horizontalScale(5),
+                    borderWidth: 1,
+                    marginTop: horizontalScale(10),
+                    marginLeft: horizontalScale(10),
+                  }}>
+                  Chapati : {data.chapati}
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontSize: horizontalScale(18),
+                    padding: horizontalScale(5),
+                    borderWidth: 1,
+                    marginLeft: horizontalScale(10),
+                  }}>
+                  Dal : {data.dal}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: horizontalScale(18),
+                    padding: horizontalScale(5),
+                    borderWidth: 1,
+                    marginTop: horizontalScale(10),
+                    marginLeft: horizontalScale(10),
+                  }}>
+                  Rice :{data.rice}
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
-        {/* <View style={styles.view}>
+          {/* <View style={styles.view}>
             <SimpleButton
               title="Decline"
               customTxtStyle={{color: '#fff', fontSize: horizontalScale(18)}}
@@ -155,8 +160,8 @@ export const UmyOrder = (props) => {
               onPress={() => alert('Order Accepted')}
             />
           </View> */}
-      </View>
-      {/* )} */}
+        </View>
+      )}
     </RootView>
   );
 };

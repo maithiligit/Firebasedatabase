@@ -35,7 +35,6 @@ export const TotalPrice = (props) => {
   const placeOrder = () => {
     const update = database().ref('Data');
     update
-      .push()
       .set({
         username: props.route.params.username,
         veg: props.route.params.veg,

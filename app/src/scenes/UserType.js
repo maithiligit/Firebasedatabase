@@ -10,7 +10,7 @@ export const UserType = (props) => {
   return (
     <RootView customStyle={styles.View}>
       <Image source={R.images.user} style={styles.image} />
-      {/* <SimpleButton
+      <SimpleButton
         title="OWNER"
         customTxtStyle={styles.customTxtStyle}
         customStyle={styles.customStyle}
@@ -18,7 +18,7 @@ export const UserType = (props) => {
         onPress={() =>
           props.navigation.navigate('DrawerNavigator', {isOwner: false})
         }
-      /> */}
+      />
       <SimpleButton
         title="USER"
         customTxtStyle={styles.customTxtStyle}

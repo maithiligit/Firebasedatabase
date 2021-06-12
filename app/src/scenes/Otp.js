@@ -46,37 +46,13 @@ const Otp = function ({
   }
 
   return (
-    // // <ErrorBoundary screenName={'OTPScreen'}>
-    // <View style={styles.container}>
-    //   <Text>Enter OTP sent to your{' ' + phoneNumber}</Text>
-    //   <View>
-    //     <TextInput
-    //       keyboardType={'numeric'}
-    //       placeholder="123456"
-    //       value={code}
-    //       onChangeText={text => setCode(text)}
-    //     />
-    //   </View>
-
-    //   <Button
-    //     title={'Submit'}
-    //     textStyle={styles.submitButtonText}
-    //     onPress={() => confirmCode()}
-    //   />
-    // </View>
-
     <RootView customStyle={styles.View}>
       <CircleImage
         source={R.images.man}
         style={{marginTop: horizontalScale(50)}}
       />
       <Text style={styles.text}>You Will Get OTP Via SMS</Text>
-      {/* <OtpInputs
-        handleChange={otp => setCode(otp)}
-        inputCount={6}
-        textInputStyle={styles.textInputStyle}
-        containerStyle={styles.containerStyle}
-      /> */}
+
       <OTPInputView
         style={{width: '90%', height: 150, alignSelf: 'center'}}
         pinCount={6}
