@@ -42,7 +42,7 @@ export const AboutUs = (props) => {
             // alignSelf: 'center',
             marginTop: horizontalScale(30),
           }}>
-          1.Name:- Soniya kolge
+          1.Name:-Dongare Roshan
         </Text>
         <Text
           style={{
@@ -52,7 +52,7 @@ export const AboutUs = (props) => {
             marginLeft: horizontalScale(45),
             marginTop: horizontalScale(5),
           }}>
-          Roll No:- 17
+          Roll No:- 164
         </Text>
 
         <Text
@@ -64,7 +64,7 @@ export const AboutUs = (props) => {
             // alignSelf: 'center',
             marginTop: horizontalScale(30),
           }}>
-          2.Name:- Maithili Pagare
+          2.Name:-Chavan Harshali
         </Text>
         <Text
           style={{
@@ -74,7 +74,7 @@ export const AboutUs = (props) => {
             marginLeft: horizontalScale(45),
             marginTop: horizontalScale(5),
           }}>
-          Roll No:- 18
+          Roll No:- 54
         </Text>
 
         <Text
@@ -86,7 +86,7 @@ export const AboutUs = (props) => {
             // alignSelf: 'center',
             marginTop: horizontalScale(30),
           }}>
-          3.Name:- Anushka wable
+          3.Name:-Gnagurde Kaveri
         </Text>
         <Text
           style={{
@@ -96,7 +96,29 @@ export const AboutUs = (props) => {
             marginLeft: horizontalScale(45),
             marginTop: horizontalScale(5),
           }}>
-          Roll No:- 24
+          Roll No:- 59
+        </Text>
+
+        <Text
+          style={{
+            color: 'green',
+            fontSize: horizontalScale(20),
+            fontWeight: 'bold',
+            marginLeft: horizontalScale(30),
+            // alignSelf: 'center',
+            marginTop: horizontalScale(30),
+          }}>
+          4.Name:-Rahul Mahajan
+        </Text>
+        <Text
+          style={{
+            color: 'green',
+            fontSize: horizontalScale(20),
+            fontWeight: 'bold',
+            marginLeft: horizontalScale(45),
+            marginTop: horizontalScale(5),
+          }}>
+          Roll No:- 160
         </Text>
       </View>
     </RootView>
